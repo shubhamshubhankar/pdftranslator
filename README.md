@@ -20,7 +20,8 @@ The system is built with modular Lambda functions and event-driven services for 
 4. **Queue**: Adds a message to an SQS queue for translation
 5. **Translation Lambda**: Translates text and stores result in S3
 6. **Status Checking**: API Gateway + Lambda allows polling job status
-
+   
+🔒 Note: The static frontend is served over HTTPS using Amazon CloudFront to provide a secure and globally-distributed interface.
 ---
 
 ## 🧱 AWS Services Used
