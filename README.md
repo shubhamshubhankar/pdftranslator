@@ -4,6 +4,12 @@ This project enables users to upload PDF files and receive translations in Itali
 
 ---
 
+## 🚀 Live Demo
+
+Frontend: [PDF Translator Web](http://pdf-translator-web.s3-website.eu-west-3.amazonaws.com/)
+
+---
+
 ## 📐 Architecture Overview
 
 The system is built with modular Lambda functions and event-driven services for scalability and fault tolerance:
