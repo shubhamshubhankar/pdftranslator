@@ -47,3 +47,10 @@ Stores information regarding the status of the process.
 REST endpoints to:
 - Get upload URL
 - Check status of submitted jobs
+
+## 👥 Team Members
+- Sevval Yildiz  
+- Oguzhan Turan  
+- Saurav Anand  
+- Shubham Subhankar Sharma
+
