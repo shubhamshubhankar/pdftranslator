@@ -2,32 +2,65 @@
 const API_URL = CONFIG.API_URL;
 
 let originalFileName = "";
+let pollingStartTime = null;
+let timerInterval = null;
 
 function updateProgress(status) {
     const progressBarFilled = document.getElementById('progressBarFilled');
     const progressText = document.getElementById('progressText');
+    const spinner = document.getElementById('spinner');
+    const timer = document.getElementById('timer');
 
     switch (status) {
         case 'UPLOADING':
             progressBarFilled.style.width = '20%';
             progressText.textContent = 'Uploading file...';
+            spinner.style.display = 'inline-block';
+            timer.style.display = 'none';
+            startTimer();
             break;
         case 'PROCESSING':
             progressBarFilled.style.width = '60%';
             progressText.textContent = 'Translation in progress...';
+            spinner.style.display = 'inline-block';
+            timer.style.display = 'block';
             break;
         case 'COMPLETED':
             progressBarFilled.style.width = '100%';
             progressText.textContent = 'Translation completed!';
+            spinner.style.display = 'none';
+            stopTimer();
             break;
         case 'FAILED':
             progressBarFilled.style.width = '0%';
             progressText.textContent = 'Translation failed.';
+            spinner.style.display = 'none';
+            stopTimer();
             break;
         default:
             progressBarFilled.style.width = '0%';
             progressText.textContent = '';
+            spinner.style.display = 'none';
+            stopTimer();
     }
+}
+
+function startTimer() {
+    pollingStartTime = Date.now();
+    const timerElement = document.getElementById('timer');
+    stopTimer(); // Clear any previous timer
+
+    timerInterval = setInterval(() => {
+        const elapsedMs = Date.now() - pollingStartTime;
+        const seconds = Math.floor(elapsedMs / 1000);
+        timerElement.textContent = `Elapsed time: ${seconds} seconds`;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    const timerElement = document.getElementById('timer');
+    timerElement.textContent = '';
 }
 
 function createDownloadLinkFromText(text, originalFileName) {
