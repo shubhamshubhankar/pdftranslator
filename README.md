@@ -6,7 +6,7 @@ This project enables users to upload PDF files and receive translations in Itali
 
 ## 🚀 Live Demo
 
-Frontend: [PDF Translator Web](http://pdf-translator-web.s3-website.eu-west-3.amazonaws.com/)
+Frontend: [PDF Translator Web](https://d1d3fusiyjat60.cloudfront.net/)
 
 ---
 
