@@ -47,7 +47,7 @@ def lambda_handler(event, context):
         download_url = s3.generate_presigned_url(
             'get_object',
             Params={
-                'Bucket': 'translations-417404104136',
+                'Bucket': bucket_name,
                 'Key': output_key
             },
             ExpiresIn=86400
@@ -62,7 +62,7 @@ def lambda_handler(event, context):
             ExpressionAttributeNames={'#status': 'status'},
             ExpressionAttributeValues={
                 ':status': 'COMPLETED',
-                ':file': f"s3://{table_name}/{output_key}",
+                ':file': f"s3://{bucket_name}/{output_key}",
                 ':text': translated_text
             }
         )
