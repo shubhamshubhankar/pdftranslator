@@ -9,9 +9,11 @@
             font-family: Arial, sans-serif;
             padding: 20px;
         }
+
         #progress {
             margin-top: 20px;
         }
+
         #downloadLink {
             display: none;
             padding: 10px;
@@ -21,6 +23,7 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+
         #progressBar {
             width: 100%;
             height: 20px;
@@ -28,15 +31,41 @@
             margin-top: 10px;
             border-radius: 10px;
         }
+
         #progressBarFilled {
             height: 100%;
             background: #4CAF50;
             width: 0%;
             border-radius: 10px;
+            transition: width 0.5s ease-in-out;
         }
+
         #progressText {
             margin-top: 10px;
             font-weight: bold;
+        }
+
+        .spinner {
+            display: none;
+            margin-top: 10px;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #ccc;
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #timer {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #555;
         }
     </style>
 </head>
@@ -49,13 +78,14 @@
         <div id="progressBar">
             <div id="progressBarFilled"></div>
         </div>
-        <div id="progressText"></div> <!-- Initially empty -->
+        <div id="progressText"></div>
+        <div class="spinner" id="spinner"></div>
+        <div id="timer"></div>
     </div>
 
     <a id="downloadLink"></a>
 
     <script src="config.js"></script>
     <script src="app.js"></script>
-
 </body>
 </html>
